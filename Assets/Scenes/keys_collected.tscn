@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dptio0fqxiq06"]
+
+[node name="KeysCollected" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Keys collected: "
+
+[node name="NumKeys" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "0"

@@ -1,16 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmlbkvdffeo4s"]
+[gd_scene load_steps=3 format=3 uid="uid://dmlbkvdffeo4s"]
 
 [ext_resource type="Texture2D" uid="uid://o23yk6b3vnja" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/props/spirited-flatform.png" id="1_patga"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5y38"]
-
-[sub_resource type="Animation" id="Animation_patga"]
-resource_name = "move_platform"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e5y38"]
-_data = {
-&"move_platform": SubResource("Animation_patga")
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_patga"]
+size = Vector2(24, 7)
 
 [node name="MovingPlatformLarge" type="AnimatableBody2D"]
 
@@ -21,12 +14,5 @@ region_rect = Rect2(64, 5, 31, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
-rotation = -1.5730438
-scale = Vector2(0.3893994, 0.95245844)
-shape = SubResource("CapsuleShape2D_e5y38")
+shape = SubResource("RectangleShape2D_patga")
 one_way_collision = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_e5y38")
-}
