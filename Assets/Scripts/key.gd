@@ -1,7 +1,7 @@
 extends Area2D
-var sum_keys = 0
 
-func _on_body_entered(_body: Node2D) -> void:
-	print("+1 key")
-	sum_keys += 1
-	$KeySprite.visible = false
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		print("+1 key")
+		GameManager.add_key()
+		queue_free()
