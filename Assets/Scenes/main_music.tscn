@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://fpu1lircpn2r"]
+
+[ext_resource type="AudioStream" uid="uid://c0tb61hhtqauq" path="res://Assets/Audios/Nature Nurture - Quincas Moreira.mp3" id="1_y0nwt"]
+
+[node name="main_music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_y0nwt")
+autoplay = true

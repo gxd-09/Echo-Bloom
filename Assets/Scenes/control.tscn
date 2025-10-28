@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://heprn0x0l47h"]
+[gd_scene load_steps=6 format=3 uid="uid://heprn0x0l47h"]
 
 [ext_resource type="LabelSettings" uid="uid://6f1ovfngi7b0" path="res://Assets/UI Settings/control.tres" id="1_qwkui"]
+[ext_resource type="Script" uid="uid://c88sn1om78pu1" path="res://Assets/Scripts/hud.gd" id="1_r7gee"]
 [ext_resource type="Texture2D" uid="uid://xctw8r3xmiqd" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/props/misc.png" id="2_s7f2f"]
+[ext_resource type="FontFile" uid="uid://ceghp8y4hqwgr" path="res://Assets/Fonts/ByteBounce.ttf" id="3_qs4rj"]
+[ext_resource type="AudioStream" uid="uid://b2o24mkf4dslk" path="res://Assets/Audios/coin.wav" id="6_axd8s"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r7gee")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -19,27 +23,47 @@ offset_right = 49.0
 offset_bottom = 47.0
 stretch_mode = 4
 
-[node name="key_count" type="Label" parent="TextureRect"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 11.0
-offset_right = 58.0
-offset_bottom = 34.0
-scale = Vector2(0.21775776, 0.22785868)
-text = "keys"
-label_settings = ExtResource("1_qwkui")
-
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
 position = Vector2(8, 13)
 texture = ExtResource("2_s7f2f")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
+[node name="key_count" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 11.0
+offset_right = 58.0
+offset_bottom = 34.0
+scale = Vector2(0.4432347, 0.45363137)
+theme_override_fonts/font = ExtResource("3_qs4rj")
+theme_override_font_sizes/font_size = 25
+text = "keys: "
+label_settings = ExtResource("1_qwkui")
+
+[node name="key_count_num" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 11.0
+offset_right = 74.0
+offset_bottom = 34.0
+scale = Vector2(0.4432347, 0.45363137)
+theme_override_fonts/font = ExtResource("3_qs4rj")
+theme_override_font_sizes/font_size = 25
+text = "00"
+label_settings = ExtResource("1_qwkui")
+
 [node name="portal_status" type="Label" parent="."]
 layout_mode = 0
-offset_left = 9.999999
-offset_top = 8.0
-offset_right = 169.0
-offset_bottom = 31.0
-scale = Vector2(0.3088107, 0.2918905)
-text = "Portal status: Closed"
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 91.0
+offset_bottom = 30.0
+scale = Vector2(0.6892831, 0.6917035)
+theme_override_fonts/font = ExtResource("3_qs4rj")
+theme_override_font_sizes/font_size = 40
+text = "Portal status:"
+label_settings = ExtResource("1_qwkui")
+
+[node name="coin_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_axd8s")

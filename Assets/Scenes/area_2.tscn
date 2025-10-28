@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b7yd1hgg1t6sq"]
+[gd_scene load_steps=14 format=4 uid="uid://b7yd1hgg1t6sq"]
 
 [ext_resource type="Texture2D" uid="uid://8lphyfnulfah" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/terrains/forest.png" id="1_ief7g"]
 [ext_resource type="Texture2D" uid="uid://dse6deinpkna" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/backgrounds/huge-trees.png" id="2_tl8op"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cmtiwxxllpiwo" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/backgrounds/bushes.png" id="4_dgr1u"]
 [ext_resource type="PackedScene" uid="uid://c8pmo6ydoc5fg" path="res://Assets/Scenes/area_exit.tscn" id="5_7h6nk"]
 [ext_resource type="PackedScene" uid="uid://bxtv8e7fbwflk" path="res://Assets/Scenes/player.tscn" id="6_tl8op"]
+[ext_resource type="Texture2D" uid="uid://c2e1k5tr1qrwu" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/backgrounds/forest.png" id="7_dgr1u"]
+[ext_resource type="Texture2D" uid="uid://k7whjycu2jm4" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/demo-forest.png" id="8_7h6nk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1njtu"]
 texture = ExtResource("1_ief7g")
@@ -6326,3 +6328,14 @@ scale = Vector2(1.4870362, 1.4870362)
 
 [node name="player" parent="." instance=ExtResource("6_tl8op")]
 position = Vector2(106, 546)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -10
+position = Vector2(721, 505)
+texture = ExtResource("7_dgr1u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -12
+position = Vector2(-223, 561)
+texture = ExtResource("8_7h6nk")

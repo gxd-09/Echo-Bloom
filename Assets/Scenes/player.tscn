@@ -168,6 +168,7 @@ jump_power = 8.0
 offset = Vector2(0, -25)
 zoom = Vector2(4, 4)
 limit_left = 0
+limit_top = 0
 limit_right = 2144
 limit_bottom = 647
 

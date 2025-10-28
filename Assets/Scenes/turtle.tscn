@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://btsrg4opj18d4"]
+
+[ext_resource type="Script" uid="uid://cktbolp8fehvj" path="res://Assets/Scenes/turtle.gd" id="1_ubu2f"]
+[ext_resource type="Texture2D" uid="uid://dv6xheyxr365x" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/characters/turtle-large.png" id="1_ybrdm"]
+
+[sub_resource type="Curve2D" id="Curve2D_0j0vp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -151, 1, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_ybrdm"]
+resource_name = "turtle_move"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(6, 1, 42, 30), Rect2(54, 1, 42, 30), Rect2(102, 1, 42, 30), Rect2(150, 1, 42, 30)]
+}
+
+[sub_resource type="Animation" id="Animation_ubu2f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(6, 1, 42, 30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0j0vp"]
+_data = {
+&"RESET": SubResource("Animation_ubu2f"),
+&"turtle_move": SubResource("Animation_ybrdm")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i73sr"]
+radius = 1.6007811
+
+[node name="turtle" type="Path2D"]
+curve = SubResource("Curve2D_0j0vp")
+script = ExtResource("1_ubu2f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
+position = Vector2(3, -12)
+
+[node name="Sprite2D2" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D"]
+position = Vector2(-6, 14)
+texture = ExtResource("1_ybrdm")
+region_enabled = true
+region_rect = Rect2(6, 1, 42, 30)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/AnimatableBody2D/Sprite2D2"]
+root_node = NodePath("../../Sprite2D2")
+libraries = {
+&"": SubResource("AnimationLibrary_0j0vp")
+}
+autoplay = "turtle_move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatableBody2D"]
+position = Vector2(-3, 12.000001)
+scale = Vector2(9.10254, 9.10254)
+shape = SubResource("CircleShape2D_i73sr")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
