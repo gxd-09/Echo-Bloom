@@ -8,11 +8,17 @@ var speed_multiplier = 20.0
 var jump_multiplier = -30.0
 var direction = 0
 
+var attack_type: String
+
 #const SPEED = 50.0
 #const JUMP_VELOCITY = -400.0
 
+func _ready():
+	MyGlobal.playerBody = self
 
 func _physics_process(delta: float) -> void:
+	MyGlobal.playerHitbox = $PlayerHitbox
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -31,3 +37,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
 
 	move_and_slide()
+	
+	
+
+
+#Player take damage
+
+#func check_hitbox():
+	#var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
+	#var damage: int
+	#if hitbox_areas:
+		#var hitbox = hitbox_areas.front()
+		#if hitbox.get_parent() is FrogEnemy:
+			#damage = MyGlobal.frogDamageAmount

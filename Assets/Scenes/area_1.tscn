@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://dniwwsu425yns"]
+[gd_scene load_steps=53 format=4 uid="uid://dniwwsu425yns"]
 
 [ext_resource type="Texture2D" uid="uid://hpv4tiqtphye" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/backgrounds/forest-background.png" id="1_irxfl"]
 [ext_resource type="Texture2D" uid="uid://8lphyfnulfah" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/terrains/forest.png" id="1_yeowd"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c8pmo6ydoc5fg" path="res://Assets/Scenes/area_exit.tscn" id="18_0b3jt"]
 [ext_resource type="PackedScene" uid="uid://bdgi1l2yifroj" path="res://Assets/Scenes/fly.tscn" id="19_0r5si"]
 [ext_resource type="PackedScene" uid="uid://btsrg4opj18d4" path="res://Assets/Scenes/turtle.tscn" id="20_p7gk1"]
+[ext_resource type="PackedScene" uid="uid://dc0s4n8tn6na4" path="res://Assets/Scenes/toxic_frog.tscn" id="21_efvqq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8jgo"]
 texture = ExtResource("1_yeowd")
@@ -7717,6 +7718,21 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Animation" id="Animation_ielde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(580, 132)]
+}
+
 [sub_resource type="Animation" id="Animation_efvqq"]
 resource_name = "turtle_move"
 length = 6.0
@@ -7732,21 +7748,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(580, 132), Vector2(393, 132)]
-}
-
-[sub_resource type="Animation" id="Animation_ielde"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(580, 132)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_avok7"]
@@ -7930,7 +7931,7 @@ scale = Vector2(-0.6324042, 0.6886504)
 texture = ExtResource("5_6dp7h")
 
 [node name="player" parent="." instance=ExtResource("5_0fdwo")]
-position = Vector2(201, 103)
+position = Vector2(167, 522)
 
 [node name="Keys" type="Node2D" parent="."]
 
@@ -8015,21 +8016,33 @@ position = Vector2(1548, 319)
 curve = SubResource("Curve2D_yegf7")
 
 [node name="MovingPlatformLarge" parent="." instance=ExtResource("13_swt8r")]
-position = Vector2(159.00002, 504.00003)
+position = Vector2(374, 432.00003)
 rotation = -3.1248226
 scale = Vector2(1.8991752, -0.696963)
 
 [node name="AreaExit" parent="." instance=ExtResource("18_0b3jt")]
 position = Vector2(124, 98)
 
-[node name="fly" parent="." instance=ExtResource("19_0r5si")]
+[node name="animals" type="Node2D" parent="."]
+
+[node name="fly" parent="animals" instance=ExtResource("19_0r5si")]
 position = Vector2(162, 112)
 
-[node name="turtle" parent="." instance=ExtResource("20_p7gk1")]
+[node name="turtle" parent="animals" instance=ExtResource("20_p7gk1")]
 position = Vector2(580, 132)
 
-[node name="turtle movement" type="AnimationPlayer" parent="turtle"]
+[node name="turtle movement" type="AnimationPlayer" parent="animals/turtle"]
 libraries = {
 &"": SubResource("AnimationLibrary_avok7")
 }
 autoplay = "turtle_move"
+
+[node name="toxic_frog" parent="animals" instance=ExtResource("21_efvqq")]
+position = Vector2(78, 519)
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
+position = Vector2(6.1035156e-05, 0)
+scale = Vector2(0.99999994, 1)
+polygon = PackedVector2Array(1, 2, 1, 652, -164, 656, -152, -132, 2329, -122, 2299, 716, 2138, 718, 2146, -54, 486, -1, 333, -57)

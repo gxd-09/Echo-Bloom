@@ -5,6 +5,8 @@ var area_path = "res://Assets/Scenes/"
 var num_keys = 0
 var hud: HUD
 
+var playerBody: CharacterBody2D
+
 func _ready():
 	reset_keys()
 	hud = get_tree().get_first_node_in_group("hud")

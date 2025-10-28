@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxtv8e7fbwflk"]
+[gd_scene load_steps=15 format=3 uid="uid://bxtv8e7fbwflk"]
 
 [ext_resource type="Texture2D" uid="uid://bdb8kvwv22p13" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/characters/player.png" id="1_6cd4h"]
 [ext_resource type="Script" uid="uid://cr3n5occ7fhdv" path="res://Assets/Scripts/player_controller.gd" id="1_7dd06"]
@@ -158,6 +158,10 @@ _data = {
 radius = 4.0
 height = 18.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38rej"]
+radius = 5.0
+height = 18.0
+
 [node name="player" type="CharacterBody2D"]
 z_index = 5
 platform_on_leave = 2
@@ -194,3 +198,11 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_7dd06")
+
+[node name="DealDamageZone" type="Area2D" parent="."]
+
+[node name="PlayerHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_38rej")

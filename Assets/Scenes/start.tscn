@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://7ns50r0m46sd"]
+[gd_scene load_steps=6 format=3 uid="uid://tgnnyayvt24c"]
 
-[ext_resource type="Texture2D" uid="uid://behj4nbsflv56" path="res://Assets/Sprites/background Forest/Forest 6.png" id="1_btkj2"]
-[ext_resource type="Script" uid="uid://ckrtj0wo6itcn" path="res://Assets/Scripts/start_screen.gd" id="1_hvvph"]
-[ext_resource type="FontFile" uid="uid://ceghp8y4hqwgr" path="res://Assets/Fonts/ByteBounce.ttf" id="2_hvvph"]
-[ext_resource type="LabelSettings" uid="uid://6f1ovfngi7b0" path="res://Assets/UI Settings/control.tres" id="3_fkayl"]
+[ext_resource type="FontFile" uid="uid://ceghp8y4hqwgr" path="res://Assets/Fonts/ByteBounce.ttf" id="1_l44cf"]
+[ext_resource type="Texture2D" uid="uid://behj4nbsflv56" path="res://Assets/Sprites/background Forest/Forest 6.png" id="2_d16hv"]
+[ext_resource type="LabelSettings" uid="uid://6f1ovfngi7b0" path="res://Assets/UI Settings/control.tres" id="3_ev7co"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btkj2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo8qh"]
 bg_color = Color(0.2578959, 0.69048125, 0.5251691, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -15,16 +14,14 @@ shadow_color = Color(0.21932468, 0.5596891, 0.35392156, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(2, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvvph"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t3oy"]
 bg_color = Color(0.2627451, 0.6666667, 0.81960785, 0.4745098)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="start_screen" type="CanvasLayer"]
-visible = false
-script = ExtResource("1_hvvph")
+[node name="start" type="CanvasLayer"]
 
 [node name="Button" type="Button" parent="."]
 offset_left = 383.0
@@ -34,8 +31,8 @@ offset_bottom = 388.0
 scale = Vector2(3.173884, 3.3476956)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(0.25882354, 0.6901961, 0.5254902, 1)
-theme_override_fonts/font = ExtResource("2_hvvph")
-theme_override_styles/normal = SubResource("StyleBoxFlat_btkj2")
+theme_override_fonts/font = ExtResource("1_l44cf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yo8qh")
 text = "Start my journey"
 metadata/_edit_use_anchors_ = true
 
@@ -44,7 +41,7 @@ z_index = -5
 texture_filter = 1
 position = Vector2(575, 325.00003)
 scale = Vector2(1.4987481, 1.4987481)
-texture = ExtResource("1_btkj2")
+texture = ExtResource("2_d16hv")
 
 [node name="Name" type="Label" parent="."]
 offset_left = 301.99997
@@ -53,10 +50,10 @@ offset_right = 368.99997
 offset_bottom = 200.00005
 scale = Vector2(7.3782287, 7.2893133)
 theme_override_colors/font_color = Color(0.31563407, 0.4826395, 0.34306908, 1)
-theme_override_fonts/font = ExtResource("2_hvvph")
+theme_override_fonts/font = ExtResource("1_l44cf")
 theme_override_font_sizes/font_size = 25
 text = "Echo Bloom"
-label_settings = ExtResource("3_fkayl")
+label_settings = ExtResource("3_ev7co")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
@@ -68,7 +65,7 @@ theme_override_colors/font_color = Color(0.2631445, 0.6660461, 0.46541715, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource("2_hvvph")
+theme_override_fonts/font = ExtResource("1_l44cf")
 theme_override_font_sizes/font_size = 30
 text = "Tread lightly traveller, for who knows 
 what secrets the forest holds..."
@@ -82,7 +79,5 @@ offset_top = 160.0
 offset_right = 326.0
 offset_bottom = 200.0
 scale = Vector2(13.100604, 2.9760132)
-theme_override_styles/panel = SubResource("StyleBoxFlat_hvvph")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6t3oy")
 metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
