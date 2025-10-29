@@ -7,3 +7,4 @@ var frogDamageAmount: int
 var playerHitbox: Area2D
 
 var playerAlive: bool
+var playerWeaponEquip: bool

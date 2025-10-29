@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://tgnnyayvt24c"]
+[gd_scene load_steps=7 format=3 uid="uid://tgnnyayvt24c"]
 
+[ext_resource type="Script" uid="uid://d22y636s5a3kg" path="res://Assets/Scenes/start.gd" id="1_d16hv"]
 [ext_resource type="FontFile" uid="uid://ceghp8y4hqwgr" path="res://Assets/Fonts/ByteBounce.ttf" id="1_l44cf"]
 [ext_resource type="Texture2D" uid="uid://behj4nbsflv56" path="res://Assets/Sprites/background Forest/Forest 6.png" id="2_d16hv"]
 [ext_resource type="LabelSettings" uid="uid://6f1ovfngi7b0" path="res://Assets/UI Settings/control.tres" id="3_ev7co"]
@@ -22,6 +23,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="start" type="CanvasLayer"]
+script = ExtResource("1_d16hv")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 383.0
@@ -81,3 +83,5 @@ offset_bottom = 200.0
 scale = Vector2(13.100604, 2.9760132)
 theme_override_styles/panel = SubResource("StyleBoxFlat_6t3oy")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

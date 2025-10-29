@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://heprn0x0l47h"]
+[gd_scene load_steps=7 format=3 uid="uid://heprn0x0l47h"]
 
 [ext_resource type="LabelSettings" uid="uid://6f1ovfngi7b0" path="res://Assets/UI Settings/control.tres" id="1_qwkui"]
 [ext_resource type="Script" uid="uid://c88sn1om78pu1" path="res://Assets/Scripts/hud.gd" id="1_r7gee"]
 [ext_resource type="Texture2D" uid="uid://xctw8r3xmiqd" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/props/misc.png" id="2_s7f2f"]
 [ext_resource type="FontFile" uid="uid://ceghp8y4hqwgr" path="res://Assets/Fonts/ByteBounce.ttf" id="3_qs4rj"]
+[ext_resource type="AudioStream" uid="uid://c0tb61hhtqauq" path="res://Assets/Audios/Nature Nurture - Quincas Moreira.mp3" id="6_4odhv"]
 [ext_resource type="AudioStream" uid="uid://b2o24mkf4dslk" path="res://Assets/Audios/coin.wav" id="6_axd8s"]
 
 [node name="Control" type="Control"]
@@ -67,3 +68,6 @@ label_settings = ExtResource("1_qwkui")
 
 [node name="coin_audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_axd8s")
+
+[node name="main_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4odhv")

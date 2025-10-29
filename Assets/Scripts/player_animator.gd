@@ -20,3 +20,4 @@ func _process(_delta):
 # jump anim - checks if velocity is in upwards direction (negative y)
 	if player_controller.velocity.y < 0.0:
 		animation_player.play("jump")
+	

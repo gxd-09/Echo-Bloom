@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxtv8e7fbwflk"]
+[gd_scene load_steps=31 format=3 uid="uid://bxtv8e7fbwflk"]
 
 [ext_resource type="Texture2D" uid="uid://bdb8kvwv22p13" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/characters/player.png" id="1_6cd4h"]
 [ext_resource type="Script" uid="uid://cr3n5occ7fhdv" path="res://Assets/Scripts/player_controller.gd" id="1_7dd06"]
 [ext_resource type="Script" uid="uid://cj00nyhvhaim1" path="res://Assets/Scripts/player_animator.gd" id="2_38rej"]
+[ext_resource type="PackedScene" uid="uid://c4d352v40qq6d" path="res://Assets/Scenes/dash.tscn" id="4_t1xgp"]
+[ext_resource type="Texture2D" uid="uid://ba2llewnkvf5p" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/effects/dust-friction.png" id="5_23lac"]
 
 [sub_resource type="Animation" id="Animation_38rej"]
 length = 0.001
@@ -142,10 +144,29 @@ tracks/0/keys = {
 "values": [Rect2(0, 32, 32, 32), Rect2(32, 32, 32, 32), Rect2(64, 32, 32, 32), Rect2(96, 32, 32, 32), Rect2(0, 32, 32, 32)]
 }
 
+[sub_resource type="Animation" id="Animation_ecf78"]
+resource_name = "attack_down"
+length = 1.2
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 256, 32, 32), Rect2(32, 256, 32, 32), Rect2(64, 256, 32, 32), Rect2(96, 256, 32, 32), Rect2(128, 256, 32, 32)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3t24"]
 _data = {
 &"RESET": SubResource("Animation_38rej"),
 &"attack": SubResource("Animation_lerqx"),
+&"attack_down": SubResource("Animation_ecf78"),
 &"climb": SubResource("Animation_jp3cw"),
 &"dash": SubResource("Animation_c3tg1"),
 &"idle": SubResource("Animation_7dd06"),
@@ -161,6 +182,104 @@ height = 18.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38rej"]
 radius = 5.0
 height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy5gb"]
+atlas = ExtResource("1_6cd4h")
+region = Rect2(0, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsrmw"]
+atlas = ExtResource("1_6cd4h")
+region = Rect2(32, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8kuu"]
+atlas = ExtResource("1_6cd4h")
+region = Rect2(64, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv74q"]
+atlas = ExtResource("1_6cd4h")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qq7w"]
+atlas = ExtResource("1_6cd4h")
+region = Rect2(32, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcr7l"]
+atlas = ExtResource("1_6cd4h")
+region = Rect2(64, 320, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrbh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsrmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8kuu")
+}],
+"loop": true,
+"name": &"climb_wall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv74q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qq7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcr7l")
+}],
+"loop": true,
+"name": &"grab_wall",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3t24"]
+atlas = ExtResource("5_23lac")
+region = Rect2(0, 66, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3tg1"]
+atlas = ExtResource("5_23lac")
+region = Rect2(32, 66, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lerqx"]
+atlas = ExtResource("5_23lac")
+region = Rect2(64, 66, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp3cw"]
+atlas = ExtResource("5_23lac")
+region = Rect2(96, 66, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecf78"]
+atlas = ExtResource("5_23lac")
+region = Rect2(128, 66, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vy5gb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3t24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3tg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lerqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp3cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecf78")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}]
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
@@ -206,3 +325,19 @@ shape = SubResource("CapsuleShape2D_7dd06")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_38rej")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_yrbh7")
+animation = &"climb_wall"
+frame = 1
+frame_progress = 0.29589146
+
+[node name="Dash" parent="." instance=ExtResource("4_t1xgp")]
+
+[node name="dash_cloud" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19, -13)
+sprite_frames = SubResource("SpriteFrames_vy5gb")
+animation = &"dash"
+
+[node name="VineRayCast" type="RayCast2D" parent="."]
