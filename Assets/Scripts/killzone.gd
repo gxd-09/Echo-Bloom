@@ -9,3 +9,4 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+	MyGlobal.keySum = 0

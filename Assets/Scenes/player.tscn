@@ -268,10 +268,10 @@ radius = 4.0
 height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_23lac"]
-radius = 9.0
+radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38rej"]
-radius = 5.0
+radius = 8.0
 height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3t24"]
@@ -317,13 +317,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player") groups=["player"]]
 z_index = 5
 position = Vector2(30, 30)
 platform_on_leave = 2
 script = ExtResource("1_7dd06")
 animation_player = NodePath("PlayerAnimator/AnimationPlayer")
+normal_speed = null
 jump_power = 8.0
+dashspeed = null
+dashlength = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
@@ -363,16 +366,18 @@ visible = false
 position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_7dd06")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="PlayerDamageZone" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(5, -13)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDamageZone"]
+visible = false
+position = Vector2(2, -14)
 shape = SubResource("CircleShape2D_23lac")
 
 [node name="PlayerHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
-position = Vector2(0, -10)
+position = Vector2(0, -12)
+scale = Vector2(1.16, 1.3599994)
 shape = SubResource("CapsuleShape2D_38rej")
 
 [node name="Dash" parent="." instance=ExtResource("4_t1xgp")]

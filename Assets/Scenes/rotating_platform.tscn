@@ -17,28 +17,28 @@ size = Vector2(32, 6.5)
 position = Vector2(0, 7.6293945e-06)
 curve = SubResource("Curve2D_4pnss")
 script = ExtResource("1_4pnss")
+ease = 2
 path_follow_2D = NodePath("PathFollow2D")
 path_time = 5.0
-ease = 2
 looping = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(0, -17.000008)
 rotates = false
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
-position = Vector2(0, 12)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D"]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(0, -5.0000076)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 position = Vector2(-0.5000005, -12)
 scale = Vector2(1.3448275, 1)
 texture = ExtResource("2_4pnss")
 region_enabled = true
 region_rect = Rect2(65, 5, 29, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(0, -12.25)
 shape = SubResource("RectangleShape2D_52257")
 one_way_collision = true
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]

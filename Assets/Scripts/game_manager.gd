@@ -3,7 +3,7 @@ extends Node
 var current_area = 1
 var area_path = "res://Assets/Scenes/"
 var num_keys = 0
-var hud: HUD
+@onready var hud: HUD
 
 var playerBody: CharacterBody2D
 
@@ -12,7 +12,6 @@ func _ready():
 	if not hud:
 		hud = get_tree().get_first_node_in_group("hud")
 	reset_keys()
-	
 	
 
 
@@ -23,22 +22,24 @@ func end_level():
 	print("The player has moved to the area " + str(current_area))
 	
 func reset_keys():
-	num_keys = 0
+	pass
 	#hud.portal_closed()
 	
 func add_key():
 	num_keys += 1
-	hud.update_key_count_num(num_keys)
+	#if is_instance_valid(hud):
+	MyGlobal.keySum += 1
+	#hud.update_key_count_num(num_keys)
 	
 	if num_keys >= 3:
 		var portal = get_tree().get_first_node_in_group("area_exits") as AreaExit
 		portal.open()
-		hud.portal_opened()
+		#hud.portal_opened()
 	
 func set_up_area():
 	reset_keys()
-	hud.update_key_count_num(num_keys)
-	hud.portal_closed()
+	#hud.update_key_count_num(num_keys)
+	#hud.portal_closed()
 
 
 

@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c0tb61hhtqauq" path="res://Assets/Audios/Nature Nurture - Quincas Moreira.mp3" id="6_4odhv"]
 [ext_resource type="AudioStream" uid="uid://b2o24mkf4dslk" path="res://Assets/Audios/coin.wav" id="6_axd8s"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("key_count_num", "portal_status") groups=["hud"]]
+[node name="HUD" type="Control" node_paths=PackedStringArray("key_count_num", "portal_status") groups=["hud"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +66,7 @@ offset_bottom = 30.011353
 scale = Vector2(2, 2.009)
 theme_override_fonts/font = ExtResource("3_qs4rj")
 theme_override_font_sizes/font_size = 100
-text = "Portal is closed... collect 10 keys!"
+text = "testing"
 label_settings = ExtResource("1_qwkui")
 
 [node name="coin_audio" type="AudioStreamPlayer2D" parent="."]

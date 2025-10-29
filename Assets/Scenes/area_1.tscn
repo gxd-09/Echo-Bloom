@@ -7604,13 +7604,6 @@ _data = {
 &"move": SubResource("Animation_0r5si")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_yegf7"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 19, -53, 0, 0, 0, 0, -77, 24, 0, 0, 0, 0, -173, -68, 0, 0, 0, 0, -40, -148, 0, 0, 0, 0, 19, -53)
-}
-point_count = 5
-
 [sub_resource type="Animation" id="Animation_ielde"]
 length = 0.001
 tracks/0/type = "value"
@@ -7693,6 +7686,13 @@ size = Vector2(30.5, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6keo"]
 size = Vector2(35, 11)
+
+[sub_resource type="Curve2D" id="Curve2D_avok7"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(-0.65288717, -57.45407, 0, 0, 0, -17.000008, 0, 0, 0, 0, -63, 45, 0, 0, 0, 0, -120, -13, 0, 0, 0, 0, -59, -59.000008, 0, 0, 11.53434, 24.592083, 0, -17.000008)
+}
+point_count = 5
 
 [node name="Area1" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [649.0]
@@ -7881,7 +7881,9 @@ scale = Vector2(-0.6324042, 0.6886504)
 texture = ExtResource("5_6dp7h")
 
 [node name="player" parent="." instance=ExtResource("5_0fdwo")]
-position = Vector2(200, 102)
+position = Vector2(1667, 226)
+dashspeed = 20
+dashlength = 0.1
 
 [node name="Keys" type="Node2D" parent="."]
 
@@ -7955,13 +7957,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_efvqq")
 }
 autoplay = "move"
-
-[node name="RotatingPlatform" parent="." instance=ExtResource("17_yegf7")]
-position = Vector2(1548, 319)
-curve = SubResource("Curve2D_yegf7")
-path_time = 1.0
-ease = 0
-looping = false
 
 [node name="AreaExit" parent="." instance=ExtResource("18_0b3jt")]
 position = Vector2(124, 98)
@@ -8088,8 +8083,13 @@ position = Vector2(1232, 172)
 shape = SubResource("RectangleShape2D_a6keo")
 
 [node name="toxic_frog" parent="." instance=ExtResource("21_efvqq")]
-position = Vector2(72, 514)
+position = Vector2(1567, 517)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("25_avok7")]
+
+[node name="RotatingPlatform" parent="." instance=ExtResource("17_yegf7")]
+position = Vector2(1592, 282)
+curve = SubResource("Curve2D_avok7")
+path_time = 8.0
