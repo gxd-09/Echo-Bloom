@@ -1,3 +1,4 @@
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
 Welcome to Echo Bloom - an exciting 2D platformer that takes you on a journey through a magical forest, where you are bound to encounter many different obstacles. With your agility and fast-paced thinking, collect all of the keys in order to unlock the hidden portal and escape! 
 
 
