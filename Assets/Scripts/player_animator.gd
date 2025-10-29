@@ -14,6 +14,8 @@ func _process(_delta):
 	# check player is moving (negative or positive does not matter, as it is moving regardless)
 	if abs(player_controller.velocity.x) > 0.0:
 		animation_player.play("walk")
+	elif Input.is_action_just_pressed("left_mouse"):
+		animation_player.play("attack")
 	else:
 		animation_player.play("idle")
 

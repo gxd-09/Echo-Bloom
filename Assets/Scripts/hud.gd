@@ -11,4 +11,4 @@ func portal_opened():
 	portal_status.text = "Portal open!"
 	
 func portal_closed():
-	portal_status.text = "Portal closed... Get more keys!"
+	portal_status.text = "Portal closed... Collect 10 keys!"

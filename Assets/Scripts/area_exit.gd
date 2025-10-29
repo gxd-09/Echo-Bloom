@@ -4,12 +4,14 @@ class_name AreaExit
 @export var sprite: Sprite2D
 var is_open = false
 
+
 func _ready():
 	close()
 	
 func open():
 	is_open = true
 	sprite.region_rect.position.x = 22
+	$Teleport.visible = true
 	
 func close():
 	is_open = false

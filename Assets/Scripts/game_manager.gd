@@ -8,10 +8,13 @@ var hud: HUD
 var playerBody: CharacterBody2D
 
 func _ready():
+	await get_tree().process_frame
+	if not hud:
+		hud = get_tree().get_first_node_in_group("hud")
 	reset_keys()
-	hud = get_tree().get_first_node_in_group("hud")
-
 	
+	
+
 
 func end_level():
 	current_area += 1
@@ -25,14 +28,17 @@ func reset_keys():
 	
 func add_key():
 	num_keys += 1
-	#hud.update_key_count_num(num_keys)
+	hud.update_key_count_num(num_keys)
+	
 	if num_keys >= 3:
 		var portal = get_tree().get_first_node_in_group("area_exits") as AreaExit
 		portal.open()
-		#hud.portal_opened()
+		hud.portal_opened()
 	
 func set_up_area():
 	reset_keys()
+	hud.update_key_count_num(num_keys)
+	hud.portal_closed()
 
 
 

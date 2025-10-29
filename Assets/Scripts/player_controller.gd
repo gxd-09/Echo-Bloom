@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name Player
+@export var animation_player: AnimationPlayer
 
 @export var normal_speed = 5.0
 var speed = 0
@@ -16,6 +17,9 @@ var direction = 0
 var attack_type: String
 var current_attack: bool
 @onready var dash_cloud = $dash_cloud
+
+var health = 100
+@onready var deal_damage_zone = $DealDamageZone
 
 
 #const SPEED = 50.0
@@ -60,7 +64,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * speed * speed_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, normal_speed * speed_multiplier)
+	
+	if !current_attack:
+		if Input.is_action_just_pressed("left_mouse") and is_on_floor():
+			current_attack = true
+			animation_player.play("attack")
+			
 		
+			
 
 	move_and_slide()
 	
@@ -76,3 +87,20 @@ func check_hitbox():
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is FrogEnemy:
 			damage = MyGlobal.frogDamageAmount
+			
+			
+
+
+func _on_player_hitbox_body_entered(_body: Node2D) -> void:
+	pass#if body is 
+
+
+
+func _on_player_hitbox_body_exited(_body: Node2D) -> void:
+	pass # Replace with function body.d
+
+func attack():
+	var overlapping_objects = $AttackArea.get_overlapping_areas()
+	for area in overlapping_objects:
+		var parent = area.get_parent()
+		
