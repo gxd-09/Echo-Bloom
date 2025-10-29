@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://fpu1lircpn2r"]
+[gd_scene load_steps=4 format=3 uid="uid://fpu1lircpn2r"]
 
 [ext_resource type="AudioStream" uid="uid://c0tb61hhtqauq" path="res://Assets/Audios/Nature Nurture - Quincas Moreira.mp3" id="1_y0nwt"]
+[ext_resource type="AudioStream" uid="uid://b2o24mkf4dslk" path="res://Assets/Audios/coin.wav" id="2_5nfm0"]
+[ext_resource type="Script" uid="uid://c71r57uh31lw1" path="res://Assets/Scenes/main_music.gd" id="2_so6e3"]
 
 [node name="main_music" type="AudioStreamPlayer2D"]
+position = Vector2(581, 298)
 stream = ExtResource("1_y0nwt")
 autoplay = true
+max_distance = 4096.0
+script = ExtResource("2_so6e3")
+
+[node name="coin_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5nfm0")

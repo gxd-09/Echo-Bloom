@@ -29,9 +29,10 @@ func add_key():
 	num_keys += 1
 	#if is_instance_valid(hud):
 	MyGlobal.keySum += 1
+	MainMusic.coin_audio.play()
 	#hud.update_key_count_num(num_keys)
 	
-	if num_keys >= 3:
+	if num_keys >= 10:
 		var portal = get_tree().get_first_node_in_group("area_exits") as AreaExit
 		portal.open()
 		#hud.portal_opened()
@@ -40,8 +41,7 @@ func set_up_area():
 	reset_keys()
 	#hud.update_key_count_num(num_keys)
 	#hud.portal_closed()
-
-
+	
 
 
 	

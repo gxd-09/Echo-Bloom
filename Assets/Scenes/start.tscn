@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://tgnnyayvt24c"]
 
-[ext_resource type="Script" uid="uid://d22y636s5a3kg" path="res://Assets/Scenes/start.gd" id="1_d16hv"]
+[ext_resource type="Script" uid="uid://d22y636s5a3kg" path="res://Assets/Scripts/start.gd" id="1_d16hv"]
 [ext_resource type="FontFile" uid="uid://ceghp8y4hqwgr" path="res://Assets/Fonts/ByteBounce.ttf" id="1_l44cf"]
 [ext_resource type="Texture2D" uid="uid://behj4nbsflv56" path="res://Assets/Sprites/background Forest/Forest 6.png" id="2_d16hv"]
 [ext_resource type="LabelSettings" uid="uid://6f1ovfngi7b0" path="res://Assets/UI Settings/control.tres" id="3_ev7co"]
@@ -83,5 +83,35 @@ offset_bottom = 200.0
 scale = Vector2(13.100604, 2.9760132)
 theme_override_styles/panel = SubResource("StyleBoxFlat_6t3oy")
 metadata/_edit_use_anchors_ = true
+
+[node name="Controls" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 481.0
+offset_right = 207.0
+offset_bottom = 562.0
+scale = Vector2(1.3970106, 1.7542715)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_l44cf")
+text = "Controls:
+Move left 
+Move right
+Jump 
+Double jump 
+Dash "
+
+[node name="Controls2" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 504.0
+offset_right = 318.0
+offset_bottom = 585.0
+scale = Vector2(1.3970106, 1.7542715)
+theme_override_colors/font_color = Color(0.9799847, 0.69471186, 0.7808835, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_l44cf")
+text = "A/Left arrow
+D/Right arrow
+SPACE
+x2 SPACE
+SHIFT"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

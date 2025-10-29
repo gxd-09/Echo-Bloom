@@ -10,7 +10,7 @@ var health_min = 0
 var dead: bool = false
 var is_roaming: bool = true
 var taking_damage: bool = false
-var damage_to_deal = 20
+var damage_to_deal = 25
 var is_dealing_damage: bool = false
 
 var dir: Vector2
@@ -61,8 +61,16 @@ func move(delta):
 	move_and_slide()
 	
 func _on_frog_deal_damage_area_area_entered(area: Area2D) -> void:
+	is_dealing_damage = true
+	handle_animation()
 	if area.get_parent() is Player:
-		area.get_parent().die()
+		area.get_parent().take_damage(damage_to_deal)
+
+func _on_frog_deal_damage_area_area_exited(_area: Area2D) -> void:
+	is_dealing_damage = false
+	handle_animation()
+		
+
 
 func handle_animation():
 	var anim_sprite = $AnimatedSprite2D

@@ -5,12 +5,27 @@
 
 [sub_resource type="Curve2D" id="Curve2D_qgt6y"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 6, -26, -8.903007, 22.158594, 8.903007, -22.158594, 13, -40, 0, 0, 0, 0, 43, -73, 0, 0, 0, 0, 61, -64, 5.341804, -25.324108, -5.341804, 25.324108, 80, -20, 0, 0, 0, 0, 58, -12, 0, 0, 0, 0, 54, -23, -15.431878, 6.5288715, 15.431878, -6.5288715, 66, -31, 0, 0, 0, 0, 93, -34, 0, 0, 0, 0, 118, -26, 0, 0, 0, 0, 160, -40, 0, 0, 0, 0, 206, -64, 0, 0, 0, 0, 207, -89, 0, 0, 0, 0, 181, -105, 0, 0, 0, 0, 142, -120, 0, 0, 0, 0, 102, -133, 0, 0, 0, 0, 93, -141, 0, 0, 0, 0, 100, -146, 0, 0, 0, 0, 112, -141, 0, 0, 0, 0, 107, -133, 0, 0, 0, 0, 94, -128, 0, 0, 0, 0, 69, -123, 0, 0, 0, 0, 33, -118, 0, 0, 0, 0, 5, -114, 0, 0, 0, 0, -11, -110, 0, 0, 0, 0, -20, -102, 0, 0, 0, 0, -25, -90, 0, 0, 0, 0, -25, -68, 0, 0, 0, 0, -23, -56, 0, 0, 0, 0, -20, -42, 0, 0, 0, 0, -19, -40, 0, 0, 0, 0, -16, -36, 0, 0, 0, 0, -12, -30, 0, 0, 0, 0, -8, -28, 0, 0, 0, 0, -6, -27, 0, 0, 0, 0, -2, -25, 0, 0, 0, 0, 5, -25, 0, 0, 0, 0, 6, -26)
+"points": PackedVector2Array(0, 0, 0, 0, 6, -26, 0, 0, 8.903007, -22.158594, 13, -40, 0, 0, 0, 0, 43, -73, 0, 0, 0, 0, 61, -64, 5.341804, -25.324108, -5.341804, 25.324108, 80, -20, 0, 0, 0, 0, 58, -12, 0, 0, 0, 0, 54, -23, -15.431878, 6.5288715, 15.431878, -6.5288715, 66, -31, 0, 0, 0, 0, 93, -34, 0, 0, 0, 0, 118, -26, 0, 0, 0, 0, 160, -40, 0, 0, 0, 0, 206, -64, 0, 0, 0, 0, 207, -89, 0, 0, 0, 0, 181, -105, 0, 0, 0, 0, 142, -120, 0, 0, 0, 0, 102, -133, 0, 0, 0, 0, 93, -141, 0, 0, 0, 0, 100, -146, 0, 0, 0, 0, 112, -141, 0, 0, 0, 0, 107, -133, 0, 0, 0, 0, 94, -128, 0, 0, 0, 0, 69, -123, 0, 0, 0, 0, 33, -118, 0, 0, 0, 0, 5, -114, 0, 0, 0, 0, -11, -110, 0, 0, 0, 0, -20, -102, 0, 0, 0, 0, -25, -90, 0, 0, 0, 0, -25, -68, 0, 0, 0, 0, -23, -56, 0, 0, 0, 0, -20, -42, 0, 0, 0, 0, -19, -40, 0, 0, 0, 0, -16, -36, 0, 0, 0, 0, -12, -30, 0, 0, 0, 0, -8, -28, 0, 0, 0, 0, -6, -27, 0, 0, 0, 0, -2, -25, 0, 0, 0, 0, 3, -22, 0, 0, 0, 0, 5, -25, 0, 0, 0, 0, 6, -26)
 }
-point_count = 38
+point_count = 39
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5fru"]
 radius = 1.6007811
+
+[sub_resource type="Animation" id="Animation_mggfd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(3, 0, 13, 16)]
+}
 
 [sub_resource type="Animation" id="Animation_i3728"]
 resource_name = "fly"
@@ -28,21 +43,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Rect2(3, 0, 13, 16), Rect2(19, 0, 13, 16), Rect2(35, 0, 13, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_mggfd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(3, 0, 13, 16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_okcv6"]

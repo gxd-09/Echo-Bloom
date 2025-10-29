@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=4 uid="uid://b7yd1hgg1t6sq"]
 
 [ext_resource type="Texture2D" uid="uid://8lphyfnulfah" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/terrains/forest.png" id="1_ief7g"]
-[ext_resource type="Script" uid="uid://dyc7pegyixsah" path="res://Assets/Scenes/area_2.gd" id="1_xm5lm"]
+[ext_resource type="Script" uid="uid://dyc7pegyixsah" path="res://Assets/Scripts/area_2.gd" id="1_xm5lm"]
 [ext_resource type="Texture2D" uid="uid://dse6deinpkna" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/backgrounds/huge-trees.png" id="2_tl8op"]
 [ext_resource type="Texture2D" uid="uid://dx2bcrre08c7s" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/backgrounds/tall-trees.png" id="3_or11y"]
 [ext_resource type="Texture2D" uid="uid://cmtiwxxllpiwo" path="res://Mini Legend Starter Bundle 1.1/Mini Legend Starter Bundle/backgrounds/bushes.png" id="4_dgr1u"]
@@ -6387,7 +6387,6 @@ scale = Vector2(1.4870362, 1.4870362)
 position = Vector2(106, 546)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 z_index = -10
 position = Vector2(721, 505)
 texture = ExtResource("7_dgr1u")

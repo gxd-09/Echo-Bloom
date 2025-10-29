@@ -11,8 +11,7 @@ func _ready():
 	move_tween()
 	
 func move_tween():
-	var tween = get_tree().create_tween()
-	#.set_loops() #infinite loops by default
+	var tween = get_tree().create_tween().set_loops() #infinite loops by default
 	tween.tween_property(path_follow_2D, "progress_ratio", 1.0, path_time)
 	#.set_ease(ease).set_trans(transition)
 	if !looping:

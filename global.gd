@@ -10,6 +10,5 @@ var frogDamageAmount: int
 
 var playerAlive: bool
 var playerWeaponEquip: bool
-var damage: int = 20
 
 var keySum: int = 0

@@ -1,8 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://dc0s4n8tn6na4"]
+[gd_scene load_steps=41 format=3 uid="uid://dc0s4n8tn6na4"]
 
 [ext_resource type="Script" uid="uid://cbww3pcrgher1" path="res://toxic_frog.gd" id="1_wwlqm"]
 [ext_resource type="Texture2D" uid="uid://u6ffq615q5os" path="res://Assets/Sprites/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Sheet.png" id="2_wwlqm"]
-[ext_resource type="Script" uid="uid://fje2c8iw54tu" path="res://Assets/Scenes/frog_deal_damage_area.gd" id="3_mkggb"]
+[ext_resource type="Script" uid="uid://fje2c8iw54tu" path="res://Assets/Scripts/frog_deal_damage_area.gd" id="3_mkggb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mkggb"]
 atlas = ExtResource("2_wwlqm")
@@ -273,9 +273,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k7xdi"]
 radius = 7.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wwlqm"]
-radius = 8.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_mkggb"]
 radius = 11.0
 
@@ -295,11 +292,6 @@ shape = SubResource("CircleShape2D_k7xdi")
 [node name="DirectionTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="FrogHitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrogHitbox"]
-shape = SubResource("CircleShape2D_wwlqm")
-
 [node name="FrogDealDamageArea" type="Area2D" parent="."]
 script = ExtResource("3_mkggb")
 
@@ -310,7 +302,7 @@ shape = SubResource("CircleShape2D_mkggb")
 [node name="DamageTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="FrogHitbox" to="." method="_on_frog_hitbox_area_entered"]
 [connection signal="area_entered" from="FrogDealDamageArea" to="." method="_on_frog_deal_damage_area_area_entered"]
+[connection signal="area_exited" from="FrogDealDamageArea" to="." method="_on_frog_deal_damage_area_area_exited"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="FrogDealDamageArea" method="_on_damage_timer_timeout"]

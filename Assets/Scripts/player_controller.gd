@@ -1,5 +1,8 @@
 extends CharacterBody2D
 class_name Player
+
+signal healthChanged
+
 @export var animation_player: AnimationPlayer
 
 @onready var normal_speed = 5.0
@@ -63,6 +66,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump") and jump_count < 2:
 			velocity.y = jump_power * jump_multiplier
 			jump_count += 1
+			#$jump.play()
 			#$coin_audio.play()
 
 		# Get the input direction and handle the movement/deceleration.
@@ -114,13 +118,18 @@ func _physics_process(delta: float) -> void:
 	#await get_tree().create_timer(wait_time).timeout
 
 
-func take_damage(damage):
-	health -= damage
-	print("Current player health: ")
+func take_damage(frog_damage):
+	health -= frog_damage
+	healthChanged.emit()
+	print("Current player health: ",health)
 	
 	if health <=0:
 		die()
+	else:
+		await get_tree().create_timer(1.0).timeout
 		
 func die():
 	print("Game over")
+	get_tree().reload_current_scene()
+	MyGlobal.keySum = 0
 		
